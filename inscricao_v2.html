@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Informações da Inscrição</title>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                nome: params.get('nome'),
+                sexo: params.get('sexo'),
+                lider: params.get('lider'),
+                discipulador: params.get('discipulador'),
+                pagamento: params.get('pagamento'),
+                ticket: params.get('ticket')
+            };
+        }
+
+        function displayInfo() {
+            const params = getQueryParams();
+            document.getElementById('nome').textContent = params.nome;
+            document.getElementById('sexo').textContent = params.sexo;
+            document.getElementById('lider').textContent = params.lider;
+            document.getElementById('discipulador').textContent = params.discipulador;
+            document.getElementById('pagamento').textContent = params.pagamento;
+            document.getElementById('ticket').textContent = params.ticket;
+        }
+
+        window.onload = displayInfo;
+    </script>
+</head>
+<body>
+    <h1>Informações da Inscrição</h1>
+    <p><strong>Nome:</strong> <span id="nome"></span></p>
+    <p><strong>Sexo:</strong> <span id="sexo"></span></p>
+    <p><strong>Líder da Célula:</strong> <span id="lider"></span></p>
+    <p><strong>Discipulador:</strong> <span id="discipulador"></span></p>
+    <p><strong>Forma de Pagamento:</strong> <span id="pagamento"></span></p>
+    <p><strong>Número do Ticket:</strong> <span id="ticket"></span></p>
+</body>
+</html>
