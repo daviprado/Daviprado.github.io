@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Inscrição</title>
+</head>
+<body>
+    <h1>Detalhes da Inscrição</h1>
+    <div id="details"></div>
+    <script>
+        // Obtém o ID do ticket da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const ticketId = urlParams.get('id');
+
+        // Simula a obtenção dos detalhes do ticket
+        const details = {
+            '0001': {
+                nome: 'João Silva',
+                sexo: 'Masculino',
+                lider: 'Carlos Almeida',
+                discipulador: 'Ana Santos',
+                pagamento: 'PIX'
+            },
+            // Adicione mais IDs e informações conforme necessário
+        };
+
+        const detail = details[ticketId];
+
+        if (detail) {
+            document.getElementById('details').innerHTML = `
+                <p>Nome: ${detail.nome}</p>
+                <p>Sexo: ${detail.sexo}</p>
+                <p>Líder da Célula: ${detail.lider}</p>
+                <p>Discipulador: ${detail.discipulador}</p>
+                <p>Forma de Pagamento: ${detail.pagamento}</p>
+            `;
+        } else {
+            document.getElementById('details').innerHTML = '<p>Informações não encontradas.</p>';
+        }
+    </script>
+</body>
+</html>
